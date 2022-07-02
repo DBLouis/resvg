@@ -15,7 +15,7 @@ workspace = ".."
 
 [[bin]]
 name = "usvg"
-required-features = ["filter", "text", "system-fonts", "memmap-fonts", "export"]
+required-features = ["filter", "text", "system-fonts", "memmap-fonts", "export", "args"]
 
 [dependencies]
 base64 = "0.13" # for embedded images
@@ -24,7 +24,7 @@ flate2 = { version = "1.0", default-features = false, features = ["rust_backend"
 float-cmp = { version = "0.9", default-features = false, features = ["std"] }
 kurbo = "0.8" # Bezier curves utils
 log = "0.4"
-pico-args =  { version = "0.5", features = ["eq-separator"] }
+pico-args =  { version = "0.5", features = ["eq-separator"], optional = true }
 rctree = "0.4"
 xmlwriter = { version = "0.1", optional = true }
 
@@ -63,3 +63,5 @@ memmap-fonts = ["fontdb/memmap"]
 # enables SVG generation using Tree::to_string
 # adds around 50KiB to your binary
 export = ["xmlwriter"]
+# enables arguments parsing
+args = ["pico-args"]

@@ -14,13 +14,13 @@ members = ["c-api", "svgfilters", "usvg"]
 
 [[bin]]
 name = "resvg"
-required-features = ["filter", "text", "system-fonts", "memmap-fonts"]
+required-features = ["filter", "text", "system-fonts", "memmap-fonts", "args"]
 
 [dependencies]
 gif = "0.11"
 jpeg-decoder = { version = "0.2", default-features = false, features = ["platform_independent"] }
 log = "0.4"
-pico-args =  { version = "0.5", features = ["eq-separator"] }
+pico-args =  { version = "0.5", features = ["eq-separator"], optional = true }
 png = "0.17"
 rgb = "0.8"
 svgfilters = { path = "svgfilters", version = "0.4", optional = true }
@@ -46,3 +46,5 @@ memmap-fonts = ["usvg/memmap-fonts"]
 # enables the --dump-svg flag in CLI
 # adds around 50KiB to your binary
 dump-svg = ["usvg/export"]
+# enables arguments parsing
+args = ["pico-args"]
